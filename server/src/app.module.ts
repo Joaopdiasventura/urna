@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AppConfig } from './config/app.config';
-import { DatabaseConfig } from './config/db.config';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { AppConfig } from "./config/app.config";
+import { DatabaseConfig } from "./config/db.config";
+import { MongooseModule } from "@nestjs/mongoose";
+import { DomainModule } from "./domain/domain.module";
 
 @Module({
   imports: [
@@ -11,9 +12,10 @@ import { MongooseModule } from '@nestjs/mongoose';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('mongo.uri'),
+        uri: configService.get<string>("mongo.uri"),
       }),
     }),
+    DomainModule,
   ],
   controllers: [],
   providers: [],
