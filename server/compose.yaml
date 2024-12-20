@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mongo:latest
+    volumes:
+      - urna-db:/var/lib/postgresql/data
+    ports:
+      - "27017:27017"
+volumes:
+  urna-db:
+
