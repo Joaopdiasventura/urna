@@ -18,5 +18,6 @@ import { UtilsModule } from "../../shared/utils/utils.module";
     UserService,
     { provide: "UserRepository", useClass: MongoUserRepository },
   ],
+  exports: [UserService],
 })
 export class UserModule {}

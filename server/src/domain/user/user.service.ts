@@ -109,7 +109,7 @@ export class UserService {
     return { message: "Conta deletada com sucesso" };
   }
 
-  private async findById(id: string) {
+  public async findById(id: string) {
     const user = await this.userRepository.findById(id);
     if (!user) throw new NotFoundException("Usuário não encontrado");
     return user;

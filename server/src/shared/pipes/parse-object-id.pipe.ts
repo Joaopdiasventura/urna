@@ -5,7 +5,7 @@ import { isValidObjectId } from "mongoose";
 export class ParseObjectIdPipe implements PipeTransform<string, string> {
   transform(value: string): string {
     if (!isValidObjectId(value))
-      throw new BadRequestException("Usuário não encontrado");
+      throw new BadRequestException("O que você procura não foi encontrado");
     return value;
   }
 }
