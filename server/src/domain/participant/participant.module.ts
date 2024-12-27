@@ -18,5 +18,6 @@ import { GroupModule } from "../group/group.module";
     ParticipantService,
     { provide: "ParticipantRepository", useClass: MongoParticipantRepository },
   ],
+  exports: [ParticipantService],
 })
 export class ParticipantModule {}
