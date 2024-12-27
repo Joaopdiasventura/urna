@@ -18,7 +18,9 @@ export class ParticipantService {
   ) {}
 
   public async create(createParticipantDto: CreateParticipantDto) {
+    await this.findGroup(createParticipantDto.group);
     await this.throwIfGroupHasASubGRoup(createParticipantDto.group);
+
     await this.participantRepository.create(createParticipantDto);
     return { message: "Participante adicionado com sucesso" };
   }
@@ -38,8 +40,10 @@ export class ParticipantService {
   public async update(id: string, updateParticipantDto: UpdateParticipantDto) {
     const { group } = await this.findById(id);
 
-    if (updateParticipantDto.group && group != updateParticipantDto.group)
+    if (updateParticipantDto.group && group != updateParticipantDto.group) {
+      await this.findGroup(updateParticipantDto.group);
       await this.throwIfGroupHasASubGRoup(updateParticipantDto.group);
+    }
 
     await this.participantRepository.update(id, updateParticipantDto);
 
