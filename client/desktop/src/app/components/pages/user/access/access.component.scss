@@ -1,0 +1,171 @@
+@import "../../../../../styles.scss";
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $background-color;
+  color: $text-color;
+
+  .container {
+    position: relative;
+    width: 60vw;
+    height: 60vh;
+    border: 0.1vw solid $primary-color;
+    box-shadow: 0 0 1.2vw $primary-color;
+    border-radius: 1vw;
+    overflow: hidden;
+    background-color: $background-secondary-color;
+
+    .curved-shape {
+      position: absolute;
+      right: 0vw;
+      top: -20vh;
+      width: 100vw;
+      height: 80vh;
+      transform: rotate(45deg);
+      transform-origin: bottom right;
+      background: linear-gradient(45deg, $second-color, $primary-color);
+      transition: 1.5s ease;
+    }
+
+    .form-box {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      h2 {
+        font-size: 2vw;
+        text-align: center;
+      }
+
+      .btn-box {
+        position: relative;
+        width: 100%;
+        height: 5vh;
+        margin-top: 1.5vw;
+
+        .btn {
+          position: relative;
+          width: 100%;
+          height: 4vh;
+          background: transparent;
+          border-radius: 4vw;
+          cursor: pointer;
+          font-size: 1.2vw;
+          color: $text-color;
+          font-weight: 600;
+          border: 0.01vw solid $primary-color;
+          overflow: hidden;
+          z-index: 1;
+        }
+
+        .btn:before {
+          content: "";
+          position: absolute;
+          height: 300%;
+          width: 100%;
+          background: linear-gradient(
+            $second-color,
+            $primary-color,
+            $second-color,
+            $primary-color
+          );
+          top: -100%;
+          left: 0;
+          z-index: -1;
+          transition: 0.5s;
+        }
+
+        .btn:hover:before {
+          top: 0;
+        }
+      }
+
+      .regi-link {
+        font-size: 1vw;
+        text-align: center;
+        margin: 2vw 0 1vw;
+
+        a {
+          text-decoration: none;
+          color: $second-color;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.form-login {
+        transition: 2s ease;
+        transform: translateX(0%);
+        left: 0;
+        padding: 4vw;
+      }
+
+      &.form-create {
+        transition: 2s ease;
+        transform: translateX(120%);
+        right: 0;
+        padding: 0 6vw;
+      }
+    }
+
+    .info-content {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      transition: 2s ease;
+      text-align: right;
+
+      h2 {
+        font-size: 2vw;
+        line-height: 1.3;
+      }
+
+      &.info-login {
+        right: 0;
+        padding: 0 4vw 14vw 15vw;
+        transform: translateX(0%);
+      }
+
+      &.info-create {
+        left: 0;
+        padding: 4vw 14vw 15vw 0vw;
+        transform: translateX(-120%);
+      }
+    }
+
+    &.active {
+      .form-login {
+        transform: translateX(-120%);
+      }
+      .form-create {
+        transform: translateX(0%);
+      }
+      .curved-shape {
+        right: -40vw;
+        transform: rotate(-45deg);
+        transform-origin: bottom left;
+      }
+      .info-login {
+        transform: translateX(120%);
+      }
+      .info-create {
+        transform: translateX(0%);
+      }
+    }
+  }
+}

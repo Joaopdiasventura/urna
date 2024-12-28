@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 let mainWindow;
 
@@ -11,6 +12,8 @@ app.on('ready', () => {
             nodeIntegration: false,
             devTools: false,
         },
+        icon: path.join(__dirname, 'public/icon.png'),
+        frame: false
     });
 
     const appUrl = 'http://localhost:4200/';
@@ -32,3 +35,4 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length == 0)
         createMainWindow();
 });
+

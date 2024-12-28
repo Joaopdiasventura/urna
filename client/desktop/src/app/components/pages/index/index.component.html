@@ -1,0 +1,8 @@
+<div class="screen">
+  @if (isLoading) {<loading />} @else if (currentUser) {
+  <header class="head">
+    <h2>Olá {{ currentUser.name }}</h2>
+    <button (click)="logOut()">-></button>
+  </header>
+  }
+</div>

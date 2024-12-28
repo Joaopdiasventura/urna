@@ -1,0 +1,46 @@
+@import "../../../../../styles.scss";
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 5vh;
+  margin-top: 1.5vw;
+
+  input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1vw;
+    color: $text-color;
+    border-bottom: 0.01vw solid $text-color;
+
+    &:-webkit-autofill {
+      background: transparent !important;
+      box-shadow: 0 0 0px 1000px $background-color inset !important;
+      color: $text-color !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: 0.01vh;
+      color: $second-color;
+    }
+
+    &:focus {
+      top: 0.01vh;
+      border-bottom: 0.01vw solid $second-color;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 1vw;
+    transition: 0.5s;
+  }
+}

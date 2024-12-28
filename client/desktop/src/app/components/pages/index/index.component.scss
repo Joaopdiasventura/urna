@@ -1,0 +1,46 @@
+@import "../../../../styles.scss";
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color;
+  color: $text-color;
+  padding: 2vh 1vw;
+
+  .head {
+    background-color: $background-secondary-color;
+    border: 0.01vw solid $text-color;
+    border-radius: 0.5vw;
+    padding: 1vh 1vw;
+    display: flex;
+    justify-content: space-between;
+    height: 7.5vh;
+    align-items: center;
+
+    h2 {
+      text-align: end;
+      font-size: 1.5vw;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: $text-color;
+      font-size: 1.5vw;
+      width: 2.5vw;
+      height: 2.5vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 0.5vw;
+      padding: 0.1vh 0.1vw;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: $background-secondary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}

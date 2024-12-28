@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+$background-color: #0f0f0f;
+$background-secondary-color: #111111;
+$text-color: #ffffff;
+$primary-color: #ff1f1f;
+$second-color: #ff4d4d;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+::selection {
+  background-color: transparent;
+  color: $primary-color;
+}

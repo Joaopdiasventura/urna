@@ -1,0 +1,27 @@
+@import "../../../../styles.scss";
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+  background: conic-gradient($background-color, $primary-color);
+  border: 0.5vw solid transparent;
+  background-clip: content-box;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
